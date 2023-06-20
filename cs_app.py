@@ -20,7 +20,7 @@ def segment_customers(input_data):
                     input_data[6], input_data[7],
                     input_data[8],input_data[9]]
 
-    data=pd.DataFrame([encoded_data], columns=['Income', 'NumWebVisitsMonth', 'Age','Children', 'MntTotalProducts', 'NumTotalPurchases', 'Education_Graduation','Education_PostGraduation','Education_UnderGraduation','Marital_Status_Married'])
+    data=pd.DataFrame([encoded_data], columns=['Income', 'NumWebVisitsMonth', 'CustomerAge','Children', 'MntTotalProducts', 'NumTotalPurchases', 'Education_Graduation','Education_PostGraduation','Education_UnderGraduation','Marital_Status_Married'])
 
     
     prediction=model.predict(data)
@@ -46,8 +46,8 @@ st.header('User Input Parameters')
 def main():
     Income = st.number_input("Type In The Household Income", key="income", step=1)
     NumWebVisitsMonth = st.number_input("Number of visits to company’s website in the last month", key="num_visits",step=1)
-    Age = st.slider("Select Age", 18, 85, key="age")
-    st.write("Customer Age is", Age)
+    CustomerAge = st.slider("Select Age", 18, 85, key="age")
+    st.write("Customer Age is", CustomerAge)
     Children = st.number_input("Number of Children", key="num_childern",step=1)
 
     #Children = st.radio("Select Number Of Children", ('0', '1', '2', '3'))
@@ -89,7 +89,7 @@ def main():
 
     # When 'Segment Customer' is clicked, make the prediction and store it
     if st.button("Segment Customer"):
-        input_data = [Income, NumWebVisitsMonth, Age, Children, MntTotalProducts, NumTotalPurchases,
+        input_data = [Income, NumWebVisitsMonth, CustomerAge, Children, MntTotalProducts, NumTotalPurchases,
                       Education_Graduation, Education_PostGraduation, Education_UnderGraduation, Marital_Status_Married]
         result = segment_customers(input_data)
 
