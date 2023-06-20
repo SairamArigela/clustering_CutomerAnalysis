@@ -4,8 +4,8 @@ import pandas as pd
 import streamlit as st
 
 
-clean_data=pd.read_csv('C:\\Users\\Siva\\Desktop\\ExcelR\\Project3\\new\\data_clean.csv')
-classifier = pickle.load(open('C:\\Users\\Siva\\Desktop\\ExcelR\\Project3\\new\\final_model.pkl', 'rb'))
+clean_data=pd.read_csv('data_clean.csv')
+classifier = pickle.load(open('final_model.pkl', 'rb'))
 
 clean_data.drop(['Unnamed: 0', 'Dclust'], axis=1, inplace=True)
 
